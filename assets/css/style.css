@@ -11,3 +11,9 @@ body {
     font-family: 'Raleway', sans-serif;
     background-image: linear-gradient(to right top, #86a8e7, #73adea, #5db2ea, #46b7e8, #2cbbe4, #17c0e1, #00c4dd, #00c8d7, #00cdd3, #00d2cc, #00d7c3, #00dbb9);
 }
+
+img {
+    width: 100px;
+    height: 100px;
+    background: #fff ;
+}
