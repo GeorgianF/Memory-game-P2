@@ -85,8 +85,17 @@ body {
 }
 
 @media only screen and (max-width: 425px) {
+    .timer {
+        line-height: 20px;
+        font-size: 12px;
+    }
+
+    .timer span {
+        font-size: 16px;
+    }
+
     .game-area {
-        width: 325px;
+        width: 80%;
         height: 200px;
         }
 
@@ -94,19 +103,28 @@ body {
         height: 50%;
         width: 27%;
         }
+
+    .basic-card img {
+        height: 60px;
+        width: auto;
 }
 
 @media only screen and (max-width: 320px) {
     .timer {
         font-size: 12px;
+        line-height: 20px;
     }
 
     .game-area {
-        width: 275px;
-        height: 180px;
+        width: 80%;
+        height: 220px;
         }
     .basic-card {
-        height: 40%;
-        width: 27%;
+        height: 20%;
+        width: 30%;
         }
+    .basic-card img {
+        height: 55px;
+        width: auto;
+    }
 }
