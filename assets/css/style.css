@@ -10,7 +10,24 @@ body {
     height: 100vh;
     font-family: 'Raleway', sans-serif;
     background-image: linear-gradient(to right top, #86a8e7, #73adea, #5db2ea, #46b7e8, #2cbbe4, #17c0e1, #00c4dd, #00c8d7, #00cdd3, #00d2cc, #00d7c3, #00dbb9);
+    background-repeat: no-repeat;
+}
+
+.timer {
+    margin: auto;
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    line-height:1cm;
+}
+
+.timer span {
+    font-size: 30px;
 }
 
 .game-area {
@@ -46,3 +63,50 @@ body {
 }
 
 
+/* Media */
+
+@media only screen and (max-width: 1024px) {
+    .game-area {
+    width: 860px;
+    height: 440px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .game-area {
+        width: 660px;
+        height: 240px;
+        }
+
+     .basic-card {
+        height: 45%;
+        width: 20%;
+        }
+}
+
+@media only screen and (max-width: 425px) {
+    .game-area {
+        width: 325px;
+        height: 200px;
+        }
+
+    .basic-card {
+        height: 50%;
+        width: 27%;
+        }
+}
+
+@media only screen and (max-width: 320px) {
+    .timer {
+        font-size: 12px;
+    }
+
+    .game-area {
+        width: 275px;
+        height: 180px;
+        }
+    .basic-card {
+        height: 40%;
+        width: 27%;
+        }
+}
