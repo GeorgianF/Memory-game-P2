@@ -37,6 +37,7 @@ body {
     flex-wrap: wrap;
     margin: auto;
     justify-content: space-evenly;
+    perspective: 1500px;
 }
 
 .basic-card {
@@ -45,6 +46,8 @@ body {
     position: relative;
     margin: 10px;
     transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 1s;
 }
 
 .basic-card:active {
@@ -60,6 +63,17 @@ body {
     padding: 5px 25px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    backface-visibility: hidden;
+}
+
+/* Rotate class */
+
+.basic-card.rotate {
+    transform: rotateY(180deg);
+}
+
+.back-side {
+    transform: rotateY(180deg);
 }
 
 
