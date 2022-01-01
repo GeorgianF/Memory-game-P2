@@ -1,6 +1,54 @@
 // Timer
+var seconds = 00;
+var tens = 00;
+var appendTens = document.getElementById('tens');
+var appendSeconds = document.getElementById('seconds');
+var appendTens = document.getElementById('tens');
+var startButton = document.getElementById('start');
+var stopButton = document.getElementById('stop');
+var resetButton = document.getElementById('reset');
+var interval;
 
+function startTimer () {
+  tens++; 
+  
+  if(tens <= 9){
+    appendTens.innerHTML = "0" + tens;
+  }
+  
+  if (tens > 9){
+    appendTens.innerHTML = tens;
+    
+  } 
+  
+  if (tens > 99) {
+    console.log("seconds");
+    seconds++;
+    appendSeconds.innerHTML = "0" + seconds;
+    tens = 0;
+    appendTens.innerHTML = "0" + 0;
+  }
+  
+  if (seconds > 9){
+    appendSeconds.innerHTML = seconds;
+  }
+}
 
+startButton.onclick = function() {
+  interval = setInterval(startTimer);
+}
+
+stopButton.onclick = function() {
+  clearInterval(interval);
+}
+
+resetButton.onclick = function() {
+  clearInterval(interval);
+  tens = '00';
+  seconds = '00';
+  appendTens.innerHTML = tens;
+  appendSeconds.innerHTML = seconds;
+}
 
 // Game area JS
 
