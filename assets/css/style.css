@@ -160,6 +160,7 @@ body {
     .basic-card img {
         height: 60px;
         width: auto;
+    }
 }
 
 @media only screen and (max-width: 320px) {
