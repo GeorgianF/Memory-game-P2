@@ -1,58 +1,59 @@
+// Timer
+
+
+
+// Game area JS
+
 const cards = document.querySelectorAll('.basic-card');
 
-  let rotateCard = false;
-  let lockGame = false;
-  let worldCard, countryCard;
+let rotateCard = false;
+let lockGame = false;
+let firstFlag, secondFlag;
 
-  function rotateCard() {
-    if (lockGame) return;
-    if (this === worldCard) return;
+function flipCard() {
+  if (lockGame) return;
+  if (this === firstFlag) return;
+  this.classList.add('rotate');
 
-    this.classList.add('rotate');
-
-    if (!rotateCard) {
-      rotateCard = true;
-      worldCard = this;
-      return;
-    }
-
-    countryCard = this;
-    lockGame = true;
-
-    checkForMatch();
+  if (!firstFlag) {
+    rotateCard = true;
+    firstFlag = this;
+    return;
   }
+  secondFlag = this;
+  checkForMatch();
+}
 
-  function checkForMatch() {
-    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
-    isMatch ? disableCards() : unflipCards();
-  }
+function checkForMatch() {
+  let isMatch = firstFlag.dataset.name === secondFlag.dataset.name;
+  isMatch ? disableCards() : unflipCards();
+}
 
-  function disableCards() {
-    worldCard.removeEventListener('click', rotateCard);
-    countryCard.removeEventListener('click', rotateCard);
+function disableCards() {
+  firstFlag.removeEventListener('click', flipCard);
+  secondFlag.removeEventListener('click', flipCard);
+  resetBoard();
+}
 
+function unflipCards() {
+  lockGame = true;
+  setTimeout(() => {
+    firstFlag.classList.remove('rotate');
+    secondFlag.classList.remove('rotate');
     resetBoard();
-  }
+  }, 1500);
+}
 
-  function unflipCards() {
-    setTimeout(() => {
-      worldCard.classList.remove('rotate');
-      countryCard.classList.remove('rotate');
+function resetBoard() {
+  [rotateCard, lockGame] = [false, false];
+  [firstFlag, secondFlag] = [null, null];
+}
 
-      resetBoard();
-    }, 1500);
-  }
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
 
-  function resetBoard() {
-    [rotateCard, lockGame] = [false, false];
-    [worldCard, countryCard] = [null, null];
-  }
-
- (function shuffle() {
-   cards.forEach(card => {
-     let ramdomPos = Math.floor(Math.random() * 12);
-     card.style.order = ramdomPos;
-   });
- })();
-
-  cards.forEach(card => card.addEventListener('click', flipCard));
+cards.forEach(card => card.addEventListener('click', flipCard));
