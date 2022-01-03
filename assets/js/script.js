@@ -1,158 +1,168 @@
-// Timer
-const FLAGS = [
-  {
-    name: 'germany',
-    flagImgSrcName: 'germany.jpeg'
-  },
-  {
-    name: 'netherlands',
-    flagImgSrcName: 'netherlands.jpeg'
-  },
-  {
-    name: 'us',
-    flagImgSrcName: 'us.jpeg'
-  },
-  {
-    name: 'uk',
-    flagImgSrcName: 'uk.jpeg'
-  },
-  {
-    name: 'canada',
-    flagImgSrcName: 'canada.jpeg'
-  },
-  {
-    name: 'spain',
-    flagImgSrcName: 'spain.jpeg'
-  }
-];
+// index.html
+document.getElementById('howto').addEventListener('click', showParagraf);
 
-
-
-function shuffleList(list) {
-  return list.sort( () => .5 - Math.random() );
+function showParagraf() {
+  document.getElementById('paragraf').innerHTML = "The memory game is a common children's game played with a set of cards. The cards have a pictures on one side and each picture appears on twoFind the pair as fast as you can to win the game. Once you click your first card, the timer will start."
+  document.getElementById('paragraf').style.display = "initial";
 }
 
 
-function showFlagsOnUI() {
-  let flagsList = [...FLAGS, ...FLAGS];
-  flagsList = shuffleList(flagsList)
 
-  let flagsHTML = '';
+// // Timer
+// const FLAGS = [
+//   {
+//     name: 'germany',
+//     flagImgSrcName: 'germany.jpeg'
+//   },
+//   {
+//     name: 'netherlands',
+//     flagImgSrcName: 'netherlands.jpeg'
+//   },
+//   {
+//     name: 'us',
+//     flagImgSrcName: 'us.jpeg'
+//   },
+//   {
+//     name: 'uk',
+//     flagImgSrcName: 'uk.jpeg'
+//   },
+//   {
+//     name: 'canada',
+//     flagImgSrcName: 'canada.jpeg'
+//   },
+//   {
+//     name: 'spain',
+//     flagImgSrcName: 'spain.jpeg'
+//   }
+// ];
 
-  flagsList.forEach(eachFlag => {
-    flagsHTML += `
-      <div class="basic-card" data-name="${eachFlag.name}">
-        <img class="back-side" src="./assets/images/${eachFlag.flagImgSrcName}" alt="${eachFlag.name}-flag">
-        <img class="front-side" src="./assets/images/world.png" alt="world-flag">
-      </div>
-    `
-  });
-
-  document.getElementById('game-area').children =flagsHTML;
-}
 
 
-var seconds = 00;
-var tens = 00;
-var appendTens = document.getElementById('tens');
-var appendSeconds = document.getElementById('seconds');
-var appendTens = document.getElementById('tens');
-var startButton = document.getElementById('start');
-var stopButton = document.getElementById('stop');
-var resetButton = document.getElementById('reset');
-var interval;
+// function shuffleList(list) {
+//   return list.sort( () => .5 - Math.random() );
+// }
 
-function startTimer () {
-  tens++;
 
-  if(tens <= 9){
-    appendTens.innerHTML = "0" + tens;
-  }
+// function showFlagsOnUI() {
+//   let flagsList = [...FLAGS, ...FLAGS];
+//   flagsList = shuffleList(flagsList)
 
-  if (tens > 9){
-    appendTens.innerHTML = tens;
+//   let flagsHTML = '';
 
-  }
+//   flagsList.forEach(eachFlag => {
+//     flagsHTML += `
+//       <div class="basic-card" data-name="${eachFlag.name}">
+//         <img class="back-side" src="./assets/images/${eachFlag.flagImgSrcName}" alt="${eachFlag.name}-flag">
+//         <img class="front-side" src="./assets/images/world.png" alt="world-flag">
+//       </div>
+//     `
+//   });
 
-  if (tens > 99) {
-    console.log("seconds");
-    seconds++;
-    appendSeconds.innerHTML = "0" + seconds;
-    tens = 0;
-    appendTens.innerHTML = "0" + 0;
-  }
+//   document.getElementById('game-area').children =flagsHTML;
+// }
 
-  if (seconds > 9){
-    appendSeconds.innerHTML = seconds;
-  }
-}
 
-startButton.onclick = function() {
-  interval = setInterval(startTimer);
-}
+// var seconds = 00;
+// var tens = 00;
+// var appendTens = document.getElementById('tens');
+// var appendSeconds = document.getElementById('seconds');
+// var appendTens = document.getElementById('tens');
+// var startButton = document.getElementById('start');
+// var stopButton = document.getElementById('stop');
+// var resetButton = document.getElementById('reset');
+// var interval;
 
-stopButton.onclick = function() {
-  clearInterval(interval);
-}
+// function startTimer () {
+//   tens++;
 
-resetButton.onclick = function() {
-  clearInterval(interval);
-  tens = '00';
-  seconds = '00';
-  appendTens.innerHTML = tens;
-  appendSeconds.innerHTML = seconds;
-}
+//   if(tens <= 9){
+//     appendTens.innerHTML = "0" + tens;
+//   }
 
-// Game area JS
-let rotateCard = false;
-let lockGame = false;
-let firstFlag, secondFlag;
+//   if (tens > 9){
+//     appendTens.innerHTML = tens;
 
-function flipCard() {
-  if (lockGame) return;
-  if (this === firstFlag) return;
-  this.classList.add('rotate');
+//   }
 
-  if (!firstFlag) {
-    rotateCard = true;
-    firstFlag = this;
-    return;
-  }
-  secondFlag = this;
-  checkForMatch();
-}
+//   if (tens > 99) {
+//     console.log("seconds");
+//     seconds++;
+//     appendSeconds.innerHTML = "0" + seconds;
+//     tens = 0;
+//     appendTens.innerHTML = "0" + 0;
+//   }
 
-function checkForMatch() {
-  let isMatch = firstFlag.dataset.name === secondFlag.dataset.name;
-  isMatch ? disableCards() : unflipCards();
-}
+//   if (seconds > 9){
+//     appendSeconds.innerHTML = seconds;
+//   }
+// }
 
-function disableCards() {
-  firstFlag.removeEventListener('click', flipCard);
-  secondFlag.removeEventListener('click', flipCard);
-  resetBoard();
-}
+// startButton.onclick = function() {
+//   interval = setInterval(startTimer);
+// }
 
-function unflipCards() {
-  lockGame = true;
-  setTimeout(() => {
-    firstFlag.classList.remove('rotate');
-    secondFlag.classList.remove('rotate');
-    resetBoard();
-  }, 1500);
-}
+// stopButton.onclick = function() {
+//   clearInterval(interval);
+// }
 
-function resetBoard() {
-  [rotateCard, lockGame] = [false, false];
-  [firstFlag, secondFlag] = [null, null];
-}
+// resetButton.onclick = function() {
+//   clearInterval(interval);
+//   tens = '00';
+//   seconds = '00';
+//   appendTens.innerHTML = tens;
+//   appendSeconds.innerHTML = seconds;
+// }
 
-function addEventListenerToFlagCards() {
-  const cards = document.querySelectorAll('.basic-card');
-  cards.forEach(card => card.addEventListener('click', flipCard));
-}
+// // Game area JS
+// let rotateCard = false;
+// let lockGame = false;
+// let firstFlag, secondFlag;
 
-(
-  showFlagsOnUI();
-  addEventListenerToFlagCards();
-)();
+// function flipCard() {
+//   if (lockGame) return;
+//   if (this === firstFlag) return;
+//   this.classList.add('rotate');
+
+//   if (!firstFlag) {
+//     rotateCard = true;
+//     firstFlag = this;
+//     return;
+//   }
+//   secondFlag = this;
+//   checkForMatch();
+// }
+
+// function checkForMatch() {
+//   let isMatch = firstFlag.dataset.name === secondFlag.dataset.name;
+//   isMatch ? disableCards() : unflipCards();
+// }
+
+// function disableCards() {
+//   firstFlag.removeEventListener('click', flipCard);
+//   secondFlag.removeEventListener('click', flipCard);
+//   resetBoard();
+// }
+
+// function unflipCards() {
+//   lockGame = true;
+//   setTimeout(() => {
+//     firstFlag.classList.remove('rotate');
+//     secondFlag.classList.remove('rotate');
+//     resetBoard();
+//   }, 1500);
+// }
+
+// function resetBoard() {
+//   [rotateCard, lockGame] = [false, false];
+//   [firstFlag, secondFlag] = [null, null];
+// }
+
+// function addEventListenerToFlagCards() {
+//   const cards = document.querySelectorAll('.basic-card');
+//   cards.forEach(card => card.addEventListener('click', flipCard));
+// }
+
+// (
+//   showFlagsOnUI();
+//   addEventListenerToFlagCards();
+// )();
