@@ -1,4 +1,57 @@
 // Timer
+const FLAGS = [
+  {
+    name: 'germany',
+    flagImgSrcName: 'germany.jpeg'
+  },
+  {
+    name: 'netherlands',
+    flagImgSrcName: 'netherlands.jpeg'
+  },
+  {
+    name: 'us',
+    flagImgSrcName: 'us.jpeg'
+  },
+  {
+    name: 'uk',
+    flagImgSrcName: 'uk.jpeg'
+  },
+  {
+    name: 'canada',
+    flagImgSrcName: 'canada.jpeg'
+  },
+  {
+    name: 'spain',
+    flagImgSrcName: 'spain.jpeg'
+  }
+];
+
+
+
+function shuffleList(list) {
+  return list.sort( () => .5 - Math.random() );
+}
+
+
+function showFlagsOnUI() {
+  let flagsList = [...FLAGS, ...FLAGS];
+  flagsList = shuffleList(flagsList)
+
+  let flagsHTML = '';
+
+  flagsList.forEach(eachFlag => {
+    flagsHTML += `
+      <div class="basic-card" data-name="${eachFlag.name}">
+        <img class="back-side" src="./assets/images/${eachFlag.flagImgSrcName}" alt="${eachFlag.name}-flag">
+        <img class="front-side" src="./assets/images/world.png" alt="world-flag">
+      </div>
+    `
+  });
+
+  document.getElementById('game-area').children =flagsHTML;
+}
+
+
 var seconds = 00;
 var tens = 00;
 var appendTens = document.getElementById('tens');
@@ -10,17 +63,17 @@ var resetButton = document.getElementById('reset');
 var interval;
 
 function startTimer () {
-  tens++; 
-  
+  tens++;
+
   if(tens <= 9){
     appendTens.innerHTML = "0" + tens;
   }
-  
+
   if (tens > 9){
     appendTens.innerHTML = tens;
-    
-  } 
-  
+
+  }
+
   if (tens > 99) {
     console.log("seconds");
     seconds++;
@@ -28,7 +81,7 @@ function startTimer () {
     tens = 0;
     appendTens.innerHTML = "0" + 0;
   }
-  
+
   if (seconds > 9){
     appendSeconds.innerHTML = seconds;
   }
@@ -51,9 +104,6 @@ resetButton.onclick = function() {
 }
 
 // Game area JS
-
-const cards = document.querySelectorAll('.basic-card');
-
 let rotateCard = false;
 let lockGame = false;
 let firstFlag, secondFlag;
@@ -97,11 +147,12 @@ function resetBoard() {
   [firstFlag, secondFlag] = [null, null];
 }
 
-(function shuffle() {
-  cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
-    card.style.order = randomPos;
-  });
-})();
+function addEventListenerToFlagCards() {
+  const cards = document.querySelectorAll('.basic-card');
+  cards.forEach(card => card.addEventListener('click', flipCard));
+}
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+(
+  showFlagsOnUI();
+  addEventListenerToFlagCards();
+)();
