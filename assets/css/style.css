@@ -56,7 +56,7 @@ body {
 
 
 
-.game-area {
+#game-area {
     width: 880px;
     height: 540px;
     display: flex;
@@ -115,7 +115,7 @@ body {
         
     }
     
-    .game-area {
+    #game-area {
         width: 70vw;
         height: 30%;
     }
@@ -127,7 +127,7 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-    .game-area {
+    #game-area {
         width: 600px;
         height: 200px;
         }
@@ -147,7 +147,7 @@ body {
         font-size: 16px;
     }
 
-    .game-area {
+    #game-area {
         width: 90%;
         height: 20%;
         }
@@ -169,7 +169,7 @@ body {
         line-height: 20px;
     }
 
-    .game-area {
+    #game-area {
         width: 80%;
         height: 150px;
         }
