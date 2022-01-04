@@ -7,34 +7,83 @@ function showParagraf() {
 }
 
 // Timer
+var seconds = 00;
+var tens = 00;
+var appendTens = document.getElementById('tens');
+var appendSeconds = document.getElementById('seconds');
+var appendTens = document.getElementById('tens');
+var startButton = document.getElementById('start');
+var stopButton = document.getElementById('stop');
+var resetButton = document.getElementById('reset');
+var interval;
+
+function startTimer () {
+  tens++;
+
+  if(tens <= 9){
+    appendTens.innerHTML = "0" + tens;
+  }
+
+  if (tens > 9){
+    appendTens.innerHTML = tens;
+
+  }
+
+  if (tens > 99) {
+    seconds++;
+    appendSeconds.innerHTML = "0" + seconds;
+    tens = 0;
+    appendTens.innerHTML = "0" + 0;
+  }
+
+  if (seconds > 9){
+    appendSeconds.innerHTML = seconds;
+  }
+}
+
+startButton.onclick = function() {
+  interval = setInterval(startTimer);
+}
+
+resetButton.onclick = function() {
+  clearInterval(interval);
+  tens = '00';
+  seconds = '00';
+  appendTens.innerHTML = tens;
+  appendSeconds.innerHTML = seconds;
+}
+
+// Game area JS
+
+// Add card to the HTML
 const FLAGS = [
   {
     name: 'germany',
-    flagImgSrcName: 'germany.jpeg'
+    flagImgSrcName: 'assets/images/germany.jpeg'
   },
   {
     name: 'netherlands',
-    flagImgSrcName: 'netherlands.jpeg'
+    flagImgSrcName: 'assets/images/netherlands.png'
   },
   {
     name: 'us',
-    flagImgSrcName: 'us.jpeg'
+    flagImgSrcName: 'assets/images/us.png'
   },
   {
     name: 'uk',
-    flagImgSrcName: 'uk.jpeg'
+    flagImgSrcName: 'assets/images/uk.png'
   },
   {
     name: 'canada',
-    flagImgSrcName: 'canada.jpeg'
+    flagImgSrcName: 'assets/images/canada.png'
   },
   {
     name: 'spain',
-    flagImgSrcName: 'spain.jpeg'
+    flagImgSrcName: 'assets/images/spain.png'
   }
 ];
 
-
+console.log('FLAGS');
 
 function shuffleList(list) {
   return list.sort( () => .5 - Math.random() );
@@ -59,59 +108,13 @@ function showFlagsOnUI() {
   document.getElementById('game-area').children =flagsHTML;
 }
 
-
-var seconds = 00;
-var tens = 00;
-var appendTens = document.getElementById('tens');
-var appendSeconds = document.getElementById('seconds');
-var appendTens = document.getElementById('tens');
-var startButton = document.getElementById('start');
-var stopButton = document.getElementById('stop');
-var resetButton = document.getElementById('reset');
-var interval;
-
-function startTimer () {
-  tens++;
-
-  if(tens <= 9){
-    appendTens.innerHTML = "0" + tens;
-  }
-
-  if (tens > 9){
-    appendTens.innerHTML = tens;
-
-  }
-
-  if (tens > 99) {
-    console.log("seconds");
-    seconds++;
-    appendSeconds.innerHTML = "0" + seconds;
-    tens = 0;
-    appendTens.innerHTML = "0" + 0;
-  }
-
-  if (seconds > 9){
-    appendSeconds.innerHTML = seconds;
-  }
+function addEventListenerToFlagCards() {
+  const cards = document.querySelectorAll('.basic-card');
+  cards.forEach(card => card.addEventListener('click', flipCard));
 }
 
-startButton.onclick = function() {
-  interval = setInterval(startTimer);
-}
 
-stopButton.onclick = function() {
-  clearInterval(interval);
-}
-
-resetButton.onclick = function() {
-  clearInterval(interval);
-  tens = '00';
-  seconds = '00';
-  appendTens.innerHTML = tens;
-  appendSeconds.innerHTML = seconds;
-}
-
-// Game area JS
+// Game logic
 let rotateCard = false;
 let lockGame = false;
 let firstFlag, secondFlag;
@@ -147,17 +150,12 @@ function unflipCards() {
     firstFlag.classList.remove('rotate');
     secondFlag.classList.remove('rotate');
     resetBoard();
-  }, 1500);
+  }, 1000);
 }
 
 function resetBoard() {
   [rotateCard, lockGame] = [false, false];
   [firstFlag, secondFlag] = [null, null];
-}
-
-function addEventListenerToFlagCards() {
-  const cards = document.querySelectorAll('.basic-card');
-  cards.forEach(card => card.addEventListener('click', flipCard));
 }
 
 (function () {
