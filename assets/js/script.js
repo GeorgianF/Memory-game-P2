@@ -1,10 +1,10 @@
-// index.html
-document.getElementById('howto').addEventListener('click', showParagraf);
+// // index.html
+// document.getElementById('howto').addEventListener('click', showParagraf);
 
-function showParagraf() {
-  document.getElementById('paragraf').innerHTML = "The memory game is a common children's game played with a set of cards. The cards have a pictures on one side and each picture appears on twoFind the pair as fast as you can to win the game. Once you click your first card, the timer will start."
-  document.getElementById('paragraf').style.display = "visible";
-}
+// function showParagraf() {
+//   document.getElementById('paragraf').innerHTML = "The memory game is a common children's game played with a set of cards. The cards have a pictures on one side and each picture appears on twoFind the pair as fast as you can to win the game. Once you click your first card, the timer will start."
+//   document.getElementById('paragraf').style.display = "visible";
+// }
 
 // Timer
 var seconds = 00;
@@ -59,36 +59,34 @@ resetButton.onclick = function() {
 const FLAGS = [
   {
     name: 'germany',
-    flagImgSrcName: 'assets/images/germany.jpeg'
+    flagImgSrcName: '../images/germany.jpeg'
   },
   {
     name: 'netherlands',
-    flagImgSrcName: 'assets/images/netherlands.png'
+    flagImgSrcName: '../images/netherlands.png'
   },
   {
     name: 'us',
-    flagImgSrcName: 'assets/images/us.png'
+    flagImgSrcName: '../images/us.png'
   },
   {
     name: 'uk',
-    flagImgSrcName: 'assets/images/uk.png'
+    flagImgSrcName: '../images/uk.png'
   },
   {
     name: 'canada',
-    flagImgSrcName: 'assets/images/canada.png'
+    flagImgSrcName: '../images/canada.png'
   },
   {
     name: 'spain',
-    flagImgSrcName: 'assets/images/spain.png'
+    flagImgSrcName: '../images/spain.png'
   }
 ];
 
-console.log('FLAGS');
 
 function shuffleList(list) {
   return list.sort( () => .5 - Math.random() );
 }
-
 
 function showFlagsOnUI() {
   let flagsList = [...FLAGS, ...FLAGS];
@@ -113,52 +111,52 @@ function addEventListenerToFlagCards() {
   cards.forEach(card => card.addEventListener('click', flipCard));
 }
 
-
-// Game logic
-let rotateCard = false;
-let lockGame = false;
-let firstFlag, secondFlag;
-
-function flipCard() {
-  if (lockGame) return;
-  if (this === firstFlag) return;
-  this.classList.add('rotate');
-
-  if (!firstFlag) {
-    rotateCard = true;
-    firstFlag = this;
-    return;
-  }
-  secondFlag = this;
-  checkForMatch();
-}
-
-function checkForMatch() {
-  let isMatch = firstFlag.dataset.name === secondFlag.dataset.name;
-  isMatch ? disableCards() : unflipCards();
-}
-
-function disableCards() {
-  firstFlag.removeEventListener('click', flipCard);
-  secondFlag.removeEventListener('click', flipCard);
-  resetBoard();
-}
-
-function unflipCards() {
-  lockGame = true;
-  setTimeout(() => {
-    firstFlag.classList.remove('rotate');
-    secondFlag.classList.remove('rotate');
-    resetBoard();
-  }, 1000);
-}
-
-function resetBoard() {
-  [rotateCard, lockGame] = [false, false];
-  [firstFlag, secondFlag] = [null, null];
-}
-
 (function () {
   showFlagsOnUI();
   addEventListenerToFlagCards();
 } )();
+
+// // Game logic
+// let rotateCard = false;
+// let lockGame = false;
+// let firstFlag, secondFlag;
+
+// function flipCard() {
+//   if (lockGame) return;
+//   if (this === firstFlag) return;
+//   this.classList.add('rotate');
+
+//   if (!firstFlag) {
+//     rotateCard = true;
+//     firstFlag = this;
+//     return;
+//   }
+//   secondFlag = this;
+//   checkForMatch();
+// }
+
+// function checkForMatch() {
+//   let isMatch = firstFlag.dataset.name === secondFlag.dataset.name;
+//   isMatch ? disableCards() : unflipCards();
+// }
+
+// function disableCards() {
+//   firstFlag.removeEventListener('click', flipCard);
+//   secondFlag.removeEventListener('click', flipCard);
+//   resetBoard();
+// }
+
+// function unflipCards() {
+//   lockGame = true;
+//   setTimeout(() => {
+//     firstFlag.classList.remove('rotate');
+//     secondFlag.classList.remove('rotate');
+//     resetBoard();
+//   }, 1000);
+// }
+
+// function resetBoard() {
+//   [rotateCard, lockGame] = [false, false];
+//   [firstFlag, secondFlag] = [null, null];
+// }
+
