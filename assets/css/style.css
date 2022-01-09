@@ -13,6 +13,13 @@ body {
     background-repeat: no-repeat;
 }
 
+#header {
+    height: 100px;
+    text-align: center;
+    padding-top: 5px;
+    color: #fff;
+}
+
 #wrapper {
     display: flex;
     flex-direction: column;
@@ -61,34 +68,42 @@ div button {
     line-height: initial;
 }
 
-#timer-wrapper {
-    text-align: center;
-}
-
-#timer-wrapper div {
-    width: 100%;
-    height: 50px;
-    text-align: center;
-}
 
 #timer-wrapper div p {
-    font-size: 22px;
+    font-size: 32px;
     color: #fff;
-    float: center
+    height: 50px;
 }
 
 #start, #stop, #reset {
     margin: 10px;
 }
 
+#start {
+    position: absolute;
+    top: 5%;
+    left: 29%;
+    padding: 5px 30px;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+#counter {
+    position: absolute;
+    top: 5%;
+    left: 67%;
+}
+
 #game-area {
     width: 880px;
-    height: 540px;
+    height: 640px;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
     justify-content: space-evenly;
     perspective: 1000px;
+    position: relative;
+    
 }
 
 .basic-card {
@@ -116,6 +131,19 @@ div button {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
     backface-visibility: hidden;
 }
+
+#reset-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#reset {
+    padding:10px 30px;
+    font-size: 20px;
+}
+
+
 
 /* Rotate class */
 
