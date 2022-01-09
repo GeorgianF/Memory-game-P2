@@ -1,11 +1,3 @@
-// // index.html
-// document.getElementById('howto').addEventListener('click', showParagraf);
-
-// function showParagraf() {
-//   document.getElementById('paragraf').innerHTML = "The memory game is a common children's game played with a set of cards. The cards have a pictures on one side and each picture appears on twoFind the pair as fast as you can to win the game. Once you click your first card, the timer will start."
-//   document.getElementById('paragraf').style.display = "visible";
-// }
-
 // Timer
 var seconds = 00;
 var tens = 00;
@@ -103,7 +95,7 @@ function showFlagsOnUI() {
     `
   });
 
-  document.getElementById('game-area').children =flagsHTML;
+  document.getElementById('game-area').innerHTML =flagsHTML;
 }
 
 function addEventListenerToFlagCards() {
@@ -116,47 +108,47 @@ function addEventListenerToFlagCards() {
   addEventListenerToFlagCards();
 } )();
 
-// // Game logic
-// let rotateCard = false;
-// let lockGame = false;
-// let firstFlag, secondFlag;
+// Game logic
+let rotateCard = false;
+let lockGame = false;
+let firstFlag, secondFlag;
 
-// function flipCard() {
-//   if (lockGame) return;
-//   if (this === firstFlag) return;
-//   this.classList.add('rotate');
+function flipCard() {
+  if (lockGame) return;
+  if (this === firstFlag) return;
+  this.classList.add('rotate');
 
-//   if (!firstFlag) {
-//     rotateCard = true;
-//     firstFlag = this;
-//     return;
-//   }
-//   secondFlag = this;
-//   checkForMatch();
-// }
+  if (!firstFlag) {
+    rotateCard = true;
+    firstFlag = this;
+    return;
+  }
+  secondFlag = this;
+  checkForMatch();
+}
 
-// function checkForMatch() {
-//   let isMatch = firstFlag.dataset.name === secondFlag.dataset.name;
-//   isMatch ? disableCards() : unflipCards();
-// }
+function checkForMatch() {
+  let isMatch = firstFlag.dataset.name === secondFlag.dataset.name;
+  isMatch ? disableCards() : unflipCards();
+}
 
-// function disableCards() {
-//   firstFlag.removeEventListener('click', flipCard);
-//   secondFlag.removeEventListener('click', flipCard);
-//   resetBoard();
-// }
+function disableCards() {
+  firstFlag.removeEventListener('click', flipCard);
+  secondFlag.removeEventListener('click', flipCard);
+  resetBoard();
+}
 
-// function unflipCards() {
-//   lockGame = true;
-//   setTimeout(() => {
-//     firstFlag.classList.remove('rotate');
-//     secondFlag.classList.remove('rotate');
-//     resetBoard();
-//   }, 1000);
-// }
+function unflipCards() {
+  lockGame = true;
+  setTimeout(() => {
+    firstFlag.classList.remove('rotate');
+    secondFlag.classList.remove('rotate');
+    resetBoard();
+  }, 1000);
+}
 
-// function resetBoard() {
-//   [rotateCard, lockGame] = [false, false];
-//   [firstFlag, secondFlag] = [null, null];
-// }
+function resetBoard() {
+  [rotateCard, lockGame] = [false, false];
+  [firstFlag, secondFlag] = [null, null];
+}
 
