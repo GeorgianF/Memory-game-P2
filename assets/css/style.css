@@ -61,48 +61,25 @@ div button {
     line-height: initial;
 }
 
-.timer {
-    margin: auto;
+#timer-wrapper {
+    text-align: center;
+}
+
+#timer-wrapper div {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
-    text-transform: uppercase;
+    height: 50px;
+    text-align: center;
+}
+
+#timer-wrapper div p {
+    font-size: 22px;
     color: #fff;
-    line-height:1cm;
-}
-
-.timer h1, .timer h3 {
-    font-size: 16px;
-}
-
-.timer span {
-    font-size: 20px;
-}
-
-.timer button {
-    height: 25px;
-    width: 60px;
-    font-size: 12px;
-    background-color: transparent;
-    color: #fff;
-    font-weight: bold;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-.timer button:hover {
-    background-color: #75acea;
+    float: center
 }
 
 #start, #stop, #reset {
     margin: 10px;
 }
-
-
 
 #game-area {
     width: 880px;
