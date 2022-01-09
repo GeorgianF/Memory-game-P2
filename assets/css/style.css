@@ -91,7 +91,7 @@ div button {
 #counter {
     position: absolute;
     top: 5%;
-    left: 67%;
+    left: 66%;
 }
 
 #game-area {
@@ -141,6 +141,7 @@ div button {
 #reset {
     padding:10px 30px;
     font-size: 20px;
+    text-transform: uppercase;
 }
 
 
@@ -159,6 +160,25 @@ div button {
 /* Media */
 
 @media only screen and (max-width: 1024px) {
+    #counter {
+        position: absolute;
+        top: 5%;
+        left: 74%;
+    }
+
+    #start {
+        position: absolute;
+        top: 5%;
+        left: 17%;
+    }
+
+    #reset-area {
+        display: inline-block;
+        position: absolute;
+        bottom: 30%;
+        right: 43%;
+    }
+    
     .timer {
         line-height: 1.5;
     }
