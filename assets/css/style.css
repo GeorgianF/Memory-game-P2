@@ -162,20 +162,20 @@ div button {
 @media only screen and (max-width: 1024px) {
     #counter {
         position: absolute;
-        top: 5%;
-        left: 74%;
+        top: 6%;
+        left: 75%;
     }
 
     #start {
         position: absolute;
         top: 5%;
-        left: 17%;
+        left: 16%;
     }
 
     #reset-area {
         display: inline-block;
         position: absolute;
-        bottom: 30%;
+        bottom: 8%;
         right: 43%;
     }
     
@@ -194,24 +194,81 @@ div button {
     }
 
     .basic-card {
-        height: 45%;
-        width: 20%;
-        }
+        height: 74%;
+        width: 23%;
+    }
 }
 
 @media only screen and (max-width: 768px) {
+    #counter {
+        position: absolute;
+        top: 6%;
+        left: 82%;
+    }
+
+    #start {
+        position: absolute;
+        top: 5%;
+        left: 6%;
+    }
+
+    #reset-area {
+        display: inline-block;
+        position: absolute;
+        bottom: 20%;
+        right: 40%;
+    }
+
+
     #game-area {
-        width: 600px;
-        height: 200px;
+        width: 700px;
+        height: 350px;
         }
 
-     .basic-card {
-        height: 45%;
-        width: 20%;
-        }
+    .basic-card {
+        height: 31%;
+        width: 31%;
+    }
 }
 
 @media only screen and (max-width: 425px) {
+    #header {
+        font-size: medium;
+    }
+    #counter {
+        position: absolute;
+        top: 5.5%;
+        left: 76%;
+    }
+
+    #timer-wrapper div p {
+        font-size: 30px;
+    }
+
+    #start {
+        position: absolute;
+        top: 5%;
+        left: 4%;
+        font-size: 11px;
+    }
+
+    div button {
+        font-size: 11px;
+    }
+
+    #reset-area {
+        display: inline-block;
+        position: absolute;
+        bottom: 40%;
+        right: 39%;
+    }
+
+    #reset {
+        padding: 6px 13px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
     .timer {
         font-size: 12px;
     }
@@ -221,39 +278,82 @@ div button {
     }
 
     #game-area {
-        width: 90%;
-        height: 20%;
-        }
+        width: 415px;
+        height: 350px;
+    }
 
     .basic-card {
-        height: 50%;
-        width: 27%;
-        }
+        height: 20%;
+        width: 26%;
+    }
+
+    .back-side {
+        padding: 6px 25px;
+    }
 
     .basic-card img {
-        height: 60px;
         width: auto;
     }
 }
 
 @media only screen and (max-width: 320px) {
+    #start {
+        position: absolute;
+        top: 5%;
+        left: 10%;
+        font-size: 16px;
+    }
+
+    #timer-wrapper div p {
+        font-size: 33px;
+    }
+
+    #counter {
+        position: absolute;
+        top: 5.5%;
+        left: 52%;
+    }
+
+    #reset-area {
+        display: inline-block;
+        position: absolute;
+        bottom: 46%;
+        right: 34%;
+    }
+
+    #reset {
+        padding: 6px 13px;
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+    
     .timer {
         font-size: 12px;
         line-height: 20px;
     }
 
     #game-area {
-        width: 80%;
-        height: 150px;
-        }
-    .basic-card {
-        height: 30%;
-        width: 25%;
-        }
-    .basic-card img {
-        height: 35px;
-        width: auto;
+        width: 90%;
+        height: 255px;
     }
+    
+    .basic-card {
+        height: 26%;
+        width: 28%;
+    }
+
+    .back-side {
+        padding: 18px 25px;
+        height: 67px;
+    }
+
+    .front-side {
+        padding: 8px 16px;
+        height: 60px;
+        width: 75px;
+        height: 67px;
+        width: 72px;
+    } 
 
     .timer button {
         height: 25px;
