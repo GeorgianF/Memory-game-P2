@@ -160,6 +160,14 @@ div button {
 /* Media */
 
 @media only screen and (max-width: 1024px) {
+    #wrapper {
+        padding: 0;
+    }
+
+    div a {
+        margin-bottom: 20px;
+    }
+    
     #counter {
         position: absolute;
         top: 6%;
@@ -215,7 +223,7 @@ div button {
     #reset-area {
         display: inline-block;
         position: absolute;
-        bottom: 20%;
+        bottom: 12%;
         right: 40%;
     }
 
@@ -232,6 +240,27 @@ div button {
 }
 
 @media only screen and (max-width: 425px) {
+    #wrapper h1{
+        font-size: 14px;
+    }
+
+    #wrapper h3 {
+        font-size: 12px;
+    }
+
+    #wrapper p {
+        width: 300px;
+        height: 195px;
+        border-radius: 15px;
+        font-size: 10px;
+        font-weight: bold;
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url(/assets/images/ps.png);
+    }
+    
     #header {
         font-size: medium;
     }
@@ -259,7 +288,7 @@ div button {
     #reset-area {
         display: inline-block;
         position: absolute;
-        bottom: 40%;
+        bottom: 34%;
         right: 39%;
     }
 
@@ -297,6 +326,15 @@ div button {
 }
 
 @media only screen and (max-width: 320px) {
+    #wrapper {
+        line-height: 0.5cm;
+    }
+
+    #wrapper p {
+        width: 264px;
+        height: 176px;
+    }
+    
     #start {
         position: absolute;
         top: 5%;
@@ -317,7 +355,7 @@ div button {
     #reset-area {
         display: inline-block;
         position: absolute;
-        bottom: 46%;
+        bottom: 38%;
         right: 34%;
     }
 
