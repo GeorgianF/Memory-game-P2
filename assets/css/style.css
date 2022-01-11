@@ -45,7 +45,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/assets/images/dice.jpeg');
+    background: url('/workspace/Memory-game-P2/assets/images/dice.jpeg');
     background-repeat: no-repeat;
     background-position: center;
 }
