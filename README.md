@@ -28,14 +28,16 @@ The main card is a planet
 
 **Validator testing**
 
-1. W3C is checked
-2. CSS is checked:
+1. W3C is checked an there are no errors
+2. CSS is checked an there are no errors
 
 ![Screenshot 2022-01-01 at 20 12 24](https://user-images.githubusercontent.com/91877102/147878902-5dcb6aa6-3dfd-40a7-b7a9-fb0151424064.png)
 
 3. Accesability with lighthouse is checked:
 
 ![Screenshot 2022-01-01 at 16 18 43](https://user-images.githubusercontent.com/91877102/147878917-b00145e3-ac84-4454-9207-f94006fc22a8.png)
+
+4. JSHint in verified and there are no errors
 
 ### BUGS
 
