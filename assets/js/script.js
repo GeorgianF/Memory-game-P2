@@ -8,6 +8,8 @@ var startButton = document.getElementById('start');
 var stopButton = document.getElementById('stop');
 var resetButton = document.getElementById('reset');
 var interval;
+var counter = 0;
+var text = document.getElementById('text');
 
 function startTimer () {
   tens++;
@@ -154,3 +156,10 @@ function resetBoard() {
   [firstFlag, secondFlag] = [null, null];
 }
 
+// var win = function () {
+
+//   if(counter === 5) {
+//     clearInterval(Interval);
+//     text.innerHTML = "Your time was " + seconds + ":" + tens;
+//   }
+// }
