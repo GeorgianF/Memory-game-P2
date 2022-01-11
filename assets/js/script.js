@@ -121,8 +121,10 @@ function flipCard() {
   if (!firstFlag) {
     rotateCard = true;
     firstFlag = this;
+    interval = setInterval(startTimer)
     return;
   }
+
   secondFlag = this;
   checkForMatch();
 }
