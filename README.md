@@ -1,10 +1,14 @@
 # THE FLAGS MEMORY GAME
 
 It's a memory game that offers the user the possibility to play the game with or without the timer.
+When you click on the first card, the timer will start, but the user have the posibility to pause or reset.
+
+The timer is in seconds.
+
 It's based on 6 pairs of card, 12 in total.
 It does not have a targeted age group, it's universal.
 
-![Screenshot 2022-01-11 at 06 21 29](https://user-images.githubusercontent.com/91877102/148885927-02627a5c-4431-44cc-97dc-cf36f2983966.png)
+<img width="794" alt="Screenshot 2022-01-15 at 19 11 42" src="https://user-images.githubusercontent.com/91877102/149633118-40ab2190-e827-4f95-985e-d88593c291b3.png">
 
 When chosing the main contrast of colors I used the websites:
 
@@ -13,7 +17,7 @@ https://material.io/resources/color/#!/?view.left=0&view.right=0
 
 **Section 1: Timer** 
 
-There is the timer that counts seconds, with two buttons: Start and Reset.
+There is the timer that counts seconds, with three buttons: Start, Stop (it can also act as Pause) and Reset.
 
 **Section 2: Game Area** 
 
@@ -29,13 +33,17 @@ The main card is a planet
 **Validator testing**
 
 1. W3C is checked an there are no errors
+
+![Screenshot 2022-01-15 at 19 23 58](https://user-images.githubusercontent.com/91877102/149633830-bd8db45e-f5fe-434f-9485-6400e6c0d3fc.png)
+
+
 2. CSS is checked an there are no errors
 
 ![Screenshot 2022-01-01 at 20 12 24](https://user-images.githubusercontent.com/91877102/147878902-5dcb6aa6-3dfd-40a7-b7a9-fb0151424064.png)
 
 3. Accesability with lighthouse is checked:
 
-![Screenshot 2022-01-01 at 16 18 43](https://user-images.githubusercontent.com/91877102/147878917-b00145e3-ac84-4454-9207-f94006fc22a8.png)
+![Screenshot 2022-01-15 at 19 31 17](https://user-images.githubusercontent.com/91877102/149633634-34e294cf-5b7f-4ea6-9854-3db263053e66.png)
 
 4. JSHint in verified and there are no errors
 
@@ -53,13 +61,14 @@ The link to the page can be found here : https://georgianf.github.io/Memory-game
 
 + The box shadow effect I took them from the website: https://getcssscan.com/css-box-shadow-examples
 + The images are found searching on google with the key word "country flag"
-+ To make the JavaScript functions I have to through the following material:
++ To make the JavaScript functions I have gone through the following material:
 - https://www.youtube.com/watch?v=tjyDOHzKN0w
 - https://www.youtube.com/watch?v=ZniVgo8U7ek
-
 + Also visited the sites for JS functions:
 - https://marina-ferreira.github.io/
 - https://mikkegoes.com/javascript-projects-for-beginners/
-- https://codepen.io/TheCodeDepository/pen/jKBaoN?page=8
+- https://codepen.io/cathydutton/pen/avYKeM
 - https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript
 - https://medium.com/free-code-camp/vanilla-javascript-tutorial-build-a-memory-game-in-30-minutes-e542c4447eae
+- https://devsnap.me/javascript-memory-games
+- https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
