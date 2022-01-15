@@ -37,7 +37,11 @@ function startTimer () {
 
 startButton.onclick = function() {
   interval = setInterval(startTimer);
-}
+};
+
+stopButton.onclick = function(){
+  clearInterval(interval);
+};
 
 resetButton.onclick = function() {
   clearInterval(interval);
@@ -45,7 +49,7 @@ resetButton.onclick = function() {
   seconds = '00';
   appendTens.innerHTML = tens;
   appendSeconds.innerHTML = seconds;
-}
+};
 
 // Game area JS
 
@@ -155,11 +159,3 @@ function resetBoard() {
   [rotateCard, lockGame] = [false, false];
   [firstFlag, secondFlag] = [null, null];
 }
-
-// var win = function () {
-
-//   if(counter === 5) {
-//     clearInterval(Interval);
-//     text.innerHTML = "Your time was " + seconds + ":" + tens;
-//   }
-// }

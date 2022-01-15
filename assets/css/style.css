@@ -14,7 +14,6 @@ body {
 }
 
 #header {
-    height: 100px;
     text-align: center;
     padding-top: 5px;
     color: #fff;
@@ -69,29 +68,33 @@ div button {
 }
 
 
-#timer-wrapper div p {
+#counter {
     font-size: 32px;
     color: #fff;
-    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#button-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 #start, #stop, #reset {
     margin: 10px;
 }
 
-#start {
-    position: absolute;
-    top: 5%;
-    left: 29%;
+#start
+#stop
+#reset {
     padding: 5px 30px;
     text-transform: uppercase;
     font-size: 20px;
-}
-
-#counter {
-    position: absolute;
-    top: 5%;
-    left: 66%;
 }
 
 #game-area {
@@ -130,20 +133,8 @@ div button {
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
     backface-visibility: hidden;
+    object-fit: contain;
 }
-
-#reset-area {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#reset {
-    padding:10px 30px;
-    font-size: 20px;
-    text-transform: uppercase;
-}
-
 
 
 /* Rotate class */
@@ -168,32 +159,12 @@ div button {
         margin-bottom: 20px;
     }
     
-    #counter {
-        position: absolute;
-        top: 6%;
-        left: 75%;
-    }
-
-    #start {
-        position: absolute;
-        top: 5%;
-        left: 16%;
-    }
-
-    #reset-area {
-        display: inline-block;
-        position: absolute;
-        bottom: 8%;
-        right: 43%;
-    }
-    
     .timer {
         line-height: 1.5;
     }
 
     .timer h1, .timer h3 {
         font-size: 12px;
-        
     }
     
     #game-area {
@@ -208,26 +179,6 @@ div button {
 }
 
 @media only screen and (max-width: 768px) {
-    #counter {
-        position: absolute;
-        top: 6%;
-        left: 82%;
-    }
-
-    #start {
-        position: absolute;
-        top: 5%;
-        left: 6%;
-    }
-
-    #reset-area {
-        display: inline-block;
-        position: absolute;
-        bottom: 12%;
-        right: 40%;
-    }
-
-
     #game-area {
         width: 700px;
         height: 350px;
@@ -264,38 +215,17 @@ div button {
     #header {
         font-size: medium;
     }
-    #counter {
-        position: absolute;
-        top: 5.5%;
-        left: 76%;
-    }
 
     #timer-wrapper div p {
         font-size: 30px;
     }
 
     #start {
-        position: absolute;
-        top: 5%;
-        left: 4%;
         font-size: 11px;
     }
 
     div button {
         font-size: 11px;
-    }
-
-    #reset-area {
-        display: inline-block;
-        position: absolute;
-        bottom: 34%;
-        right: 39%;
-    }
-
-    #reset {
-        padding: 6px 13px;
-        font-size: 12px;
-        text-transform: uppercase;
     }
 
     .timer {
@@ -335,36 +265,10 @@ div button {
         height: 176px;
     }
     
-    #start {
-        position: absolute;
-        top: 5%;
-        left: 10%;
-        font-size: 16px;
-    }
-
     #timer-wrapper div p {
-        font-size: 33px;
+        font-size: 20px;
     }
 
-    #counter {
-        position: absolute;
-        top: 5.5%;
-        left: 52%;
-    }
-
-    #reset-area {
-        display: inline-block;
-        position: absolute;
-        bottom: 38%;
-        right: 34%;
-    }
-
-    #reset {
-        padding: 6px 13px;
-        font-size: 15px;
-        text-transform: uppercase;
-    }
-    
     .timer {
         font-size: 12px;
         line-height: 20px;
