@@ -11,46 +11,6 @@ var interval;
 var counter = 0;
 var text = document.getElementById('text');
 
-function startTimer () {
-  tens++;
-
-  if(tens <= 9){
-    appendTens.innerHTML = "0" + tens;
-  }
-
-  if (tens > 9){
-    appendTens.innerHTML = tens;
-
-  }
-
-  if (tens > 99) {
-    seconds++;
-    appendSeconds.innerHTML = "0" + seconds;
-    tens = 0;
-    appendTens.innerHTML = "0" + 0;
-  }
-
-  if (seconds > 9){
-    appendSeconds.innerHTML = seconds;
-  }
-}
-
-startButton.onclick = function() {
-  interval = setInterval(startTimer);
-};
-
-stopButton.onclick = function(){
-  clearInterval(interval);
-};
-
-resetButton.onclick = function() {
-  clearInterval(interval);
-  tens = '00';
-  seconds = '00';
-  appendTens.innerHTML = tens;
-  appendSeconds.innerHTML = seconds;
-};
-
 // Game area JS
 
 // Add card to the HTML
@@ -159,3 +119,42 @@ function resetBoard() {
   [rotateCard, lockGame] = [false, false];
   [firstFlag, secondFlag] = [null, null];
 }
+function startTimer () {
+  tens++;
+
+  if(tens <= 9){
+    appendTens.innerHTML = "0" + tens;
+  }
+
+  if (tens > 9){
+    appendTens.innerHTML = tens;
+
+  }
+
+  if (tens > 99) {
+    seconds++;
+    appendSeconds.innerHTML = "0" + seconds;
+    tens = 0;
+    appendTens.innerHTML = "0" + 0;
+  }
+
+  if (seconds > 9){
+    appendSeconds.innerHTML = seconds;
+  }
+}
+
+startButton.onclick = function() {
+  interval = setInterval(startTimer);
+};
+
+stopButton.onclick = function(){
+  clearInterval(interval);
+};
+
+resetButton.onclick = function() {
+  clearInterval(interval);
+  tens = '00';
+  seconds = '00';
+  appendTens.innerHTML = tens;
+  appendSeconds.innerHTML = seconds;
+};
