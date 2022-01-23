@@ -1,7 +1,7 @@
 # THE FLAGS MEMORY GAME
 
-It's a memory game that offers the user the possibility to play the game with or without the timer.
-When you click on the first card, the timer will start, but the user have the posibility to pause or reset.
+It's a memory game that offers the user the possibility to play the game with or without the timer, for user interaction
+When you click on the first card, the timer will not start. It's the users option to play the game with the timer or not.
 
 The timer is in seconds.
 
