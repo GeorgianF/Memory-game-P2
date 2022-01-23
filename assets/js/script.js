@@ -87,7 +87,6 @@ function flipCard() {
   if (!firstFlag) {
     rotateCard = true;
     firstFlag = this;
-    interval = setInterval(startTimer)
     return;
   }
 
